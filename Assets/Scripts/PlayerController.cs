@@ -7,11 +7,6 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public float speed;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -38,4 +33,13 @@ public class PlayerController : MonoBehaviour
             rigidbody2D.velocity = new Vector2(0f, 0f);
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+
+    {
+        if (other.tag == "Door")
+        {
+            Debug.Log("Level Completed");
+        }
+        }
+
 }
