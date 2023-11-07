@@ -8,15 +8,19 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public float speed;
     public GameObject GameWonPanel;
-
     public GameObject GameLostPanel;
     private bool isGameOver=false;
     public CameraShake camerashake;
+    public ParticleSystem particleSystem;
 
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+
+
+
+
       
         if(isGameOver == true)
         {
