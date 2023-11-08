@@ -87,4 +87,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Next Level Loaded");
         }
     }
+
+
+    public void OnApplicationQuit()
+    {
+        Application.Quit();
+    }
 }
