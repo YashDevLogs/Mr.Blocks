@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public GameObject GameWonPanel;
     public GameObject GameLostPanel;
-    private bool isGameOver=false;
+    private bool isGameOver = false;
     public CameraShake camerashake;
     public ParticleSystem particleSystem;
 
@@ -21,34 +21,34 @@ public class PlayerController : MonoBehaviour
 
 
 
-      
-        if(isGameOver == true)
+
+        if (isGameOver == true)
         {
             return;
         }
 
-            if (horizontalInput > 0)
-            {
-                rigidbody2D.velocity = new Vector2(speed, 0f);
-            }
-            else if (horizontalInput < 0)
-            {
-                rigidbody2D.velocity = new Vector2(-speed, 0f);
-            }
-            else if (verticalInput > 0)
-            {
-                rigidbody2D.velocity = new Vector2(0f, speed);
-            }
-            else if (verticalInput < 0)
-            {
-                rigidbody2D.velocity = new Vector2(0f, -speed);
-            }
-            else
-            {
-                rigidbody2D.velocity = new Vector2(0f, 0f);
-            }
+        if (horizontalInput > 0)
+        {
+            rigidbody2D.velocity = new Vector2(speed, 0f);
         }
-    
+        else if (horizontalInput < 0)
+        {
+            rigidbody2D.velocity = new Vector2(-speed, 0f);
+        }
+        else if (verticalInput > 0)
+        {
+            rigidbody2D.velocity = new Vector2(0f, speed);
+        }
+        else if (verticalInput < 0)
+        {
+            rigidbody2D.velocity = new Vector2(0f, -speed);
+        }
+        else
+        {
+            rigidbody2D.velocity = new Vector2(0f, 0f);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
 
     {
@@ -76,4 +76,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+    public void NextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+            Debug.Log("Next Level Loaded");
+        }
+    }
 }
